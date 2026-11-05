@@ -1,6 +1,6 @@
 <!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#171c32"><title>GewinnRadar</title><link rel="manifest" href="manifest.webmanifest"><style>
 :root{font-family:-apple-system,BlinkMacSystemFont,system-ui,sans-serif;color:#202438;background:#f5f6fb}*{box-sizing:border-box}body{margin:0}header{background:#171c32;color:white;padding:30px 20px 23px}main{max-width:650px;margin:auto;padding:18px 16px 70px}h1{font-size:26px;margin:0 0 4px}h2{font-size:18px;margin:0 0 14px}p{line-height:1.5}header p{margin:0;color:#c7cbe0;font-size:13px}.panel{background:white;border:1px solid #e6e8f0;border-radius:18px;padding:18px;margin-bottom:16px;box-shadow:0 3px 14px #161d3510}.upload{border:2px dashed #b9b5e5;border-radius:14px;background:#f8f7ff;padding:22px;text-align:center;display:block;cursor:pointer}.upload strong{display:block;color:#5547b5}.upload small{display:block;margin-top:7px;color:#777}.upload input{display:none}button,.button{background:#6354c9;color:white;border:0;border-radius:11px;padding:12px 14px;font-weight:650;cursor:pointer;font-size:14px}button.secondary{background:#eeecfb;color:#4e4499}button.danger{background:#fff0f0;color:#a12d35}button:disabled{opacity:.5}label.field{display:block;font-size:13px;font-weight:650;margin:12px 0 5px}input:not([type=file]),select,textarea{width:100%;border:1px solid #d9dce8;border-radius:10px;padding:11px;background:white;color:#202438;font:inherit;font-size:15px}textarea{min-height:65px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.hint{font-size:12px;color:#6e7285}.entry{border:1px solid #e8e9f0;border-radius:13px;padding:13px;margin-top:10px}.entry .top{display:flex;justify-content:space-between;gap:10px}.entry strong{font-size:16px}.tag{font-size:11px;border-radius:20px;background:#efecff;color:#5546a6;padding:5px 8px;white-space:nowrap}.meta{color:#666e82;font-size:13px;margin:7px 0}.entry .actions{margin-top:9px}.entry button{padding:8px 10px;font-size:12px}.empty{color:#777;text-align:center;padding:22px 8px}.hidden{display:none}.stat{display:flex;gap:10px;margin:12px 0 0}.stat div{background:#ffffff16;border-radius:12px;padding:9px 13px;flex:1}.stat b{display:block;font-size:19px}.stat small{color:#c9cce1}#preview{max-width:100%;max-height:240px;border-radius:12px;margin-top:12px}.warn{background:#fff8e7;padding:10px;border-radius:9px;color:#795514;font-size:12px}a{color:#5748b4} .filter{display:flex;gap:8px;flex-wrap:wrap}.filter select{flex:1;min-width:130px}@media(max-width:380px){.grid{grid-template-columns:1fr}}
-</style></head><body><header><div style="max-width:650px;margin:auto"><h1>🍀 GewinnRadar</h1><p>Deine Instagram-Gewinnspiele. Ohne Chaos. · v1.2</p><div class="stat"><div><b id="activeCount">0</b><small>Offen</small></div><div><b id="soonCount">0</b><small>Nächste 7 Tage</small></div><div><b id="doneCount">0</b><small>Erledigt</small></div></div></div></header><main>
+</style></head><body><header><div style="max-width:650px;margin:auto"><h1>🍀 GewinnRadar</h1><p>Deine Instagram-Gewinnspiele. Ohne Chaos. · v1.3</p><div class="stat"><div><b id="activeCount">0</b><small>Offen</small></div><div><b id="soonCount">0</b><small>Nächste 7 Tage</small></div><div><b id="doneCount">0</b><small>Erledigt</small></div></div></div></header><main>
 <section class="panel"><h2>＋ Gewinnspiel hinzufügen</h2><label class="upload">📸 <strong>Instagram-Screenshot auswählen</strong><small>Aus Fotos oder Dateien · Texterkennung auf deinem Gerät</small><input id="file" type="file" accept="image/*"></label><div id="scanInfo" class="hint" aria-live="polite" style="margin-top:10px"></div><img id="preview" class="hidden" alt="Screenshot-Vorschau"><div class="actions"><button id="manual" class="secondary">Ohne Screenshot eintragen</button></div><div id="editor" class="hidden"><div class="warn" style="margin-top:14px">Bitte erkannte Daten prüfen. Auslosung und Teilnahmeschluss sind nicht immer dasselbe. Fehlende Angaben bleiben leer.</div><label class="field">Instagram-Profil</label><input id="handle" placeholder="@profilname" autocomplete="off"><label class="field">Gewinn / Notiz</label><input id="prize" placeholder="z. B. 100 € Einkaufsgutschein"><div class="grid"><div><label class="field">Auslosungsdatum (falls bekannt)</label><input id="date" type="date"></div><div><label class="field">Uhrzeit (falls bekannt)</label><input id="time" type="time"></div></div><label class="field">Teilnahmeschluss (falls bekannt)</label><input id="deadline" type="date"><label class="field">Wo wird der Gewinner bekanntgegeben?</label><select id="method"><option value="Unbekannt">Unbekannt</option><option value="DM">Privatnachricht / DM</option><option value="Story">Instagram-Story</option><option value="Live">Livestream</option><option value="Beitrag">Beitrag / Kommentar</option><option value="E-Mail">E-Mail</option><option value="Sonstiges">Sonstiges</option></select><label class="field">Link zum Gewinnspiel (optional)</label><input id="url" type="url" placeholder="https://www.instagram.com/p/..."><label class="field">Zusätzliche Hinweise</label><textarea id="notes" placeholder="z. B. Gewinner muss sich binnen 24 Stunden melden"></textarea><label class="field">Erkannter Screenshot-Text (zur Kontrolle)</label><textarea id="raw" placeholder="Hier kannst du auch kopierten Instagram-Text einfügen"></textarea><div class="actions"><button id="reparse" class="secondary">Text erneut auswerten</button><button id="save">Gewinnspiel speichern</button><button id="cancel" class="secondary">Abbrechen</button></div></div></section>
 <section class="panel"><h2>Meine Gewinnspiele</h2><div class="filter"><select id="statusFilter" aria-label="Status"><option value="open">Offene Gewinnspiele</option><option value="all">Alle</option><option value="done">Erledigt</option></select><select id="methodFilter" aria-label="Auslosungsart"><option value="all">Alle Auslosungsarten</option><option>DM</option><option>Story</option><option>Live</option><option>Beitrag</option><option>E-Mail</option><option>Sonstiges</option><option>Unbekannt</option></select><select id="sort" aria-label="Sortierung"><option value="date">Datum aufsteigend</option><option value="recent">Zuletzt hinzugefügt</option></select></div><div id="list"></div><div class="actions"><button class="secondary" id="export">Daten sichern (JSON)</button><button class="secondary" id="importBtn">Sicherung importieren</button><input type="file" id="import" accept="application/json" class="hidden"></div><p class="hint">Daten bleiben in diesem Browser auf diesem Gerät. Browserdaten löschen oder privates Surfen kann sie entfernen. Bitte regelmäßig sichern.</p></section>
 <p class="hint">OCR benötigt beim ersten Mal Internet, um die Erkennungsbibliothek zu laden. Die Screenshots werden nicht an unseren Server übertragen. Es gibt keine Instagram-Anmeldung und kein automatisches Folgen/Entfolgen.</p></main>
@@ -40,6 +40,7 @@ function parse(text){
  let time='';const tm=s.match(/(?:auslosung|ziehung|live|bekanntgabe)[^\n]{0,70}?(\d{1,2})[:.](\d{2})\s*uhr/i);if(tm&&Number(tm[1])<24&&Number(tm[2])<60)time=String(tm[1]).padStart(2,'0')+':'+tm[2];
  let prize='';const prizeMatch=s.match(/(?:gewinnspiel\s+des|gewinne?\s+(?:das|den|ein|eine|einen)?\s*|verlose\s+(?:ein|eine|einen)?\s*)(iPhone\s*\d{1,2}\s*(?:Pro\s*Max|Pro|Plus)?|iPad[^\n.,]{0,25}|Apple Watch[^\n.,]{0,25}|\d+[\s.,]*€[^\n.,]{0,30}|(?:Amazon|Lidl|Aldi|REWE)[^\n.,]{0,40}Gutschein)/i);
  if(prizeMatch)prize=prizeMatch[1].trim();
+ if(!prize){const standalone=s.match(/\b(iPhone\s*1[0-9]\s*(?:Pro\s*Max|Pro|Plus)?|iPad\s*(?:Pro|Air|mini)?|Apple\s*Watch\s*(?:Ultra|Series)?\s*\d*|MacBook\s*(?:Air|Pro)?)\b/i);if(standalone)prize=standalone[1].replace(/\s+/g,' ').trim()}
  return {handle,method,date,deadline,time,prize};
 }
 function showEditor(){ $('editor').classList.remove('hidden') }function reset(){editing=null;['handle','prize','date','deadline','time','url','notes','raw'].forEach(id=>$(id).value='');$('method').value='Unbekannt';$('file').value='';$('preview').classList.add('hidden');$('scanInfo').textContent='';$('editor').classList.add('hidden')}
@@ -58,25 +59,37 @@ $('file').onchange=async e=>{
    const ctx=canvas.getContext('2d');ctx.fillStyle='white';ctx.fillRect(0,0,canvas.width,canvas.height);
    ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';ctx.drawImage(img,0,y,img.width,h,0,0,canvas.width,canvas.height);return canvas;
   };
-  // First crop includes the likes and the entire caption, without image artwork.
-  const caption=makeCrop(.55,1,2.5);
-  const first=await Tesseract.recognize(caption,'deu+eng',{logger:m=>{if(m.status==='recognizing text')$('scanInfo').textContent='Bildunterschrift: '+Math.round(m.progress*100)+' %'}});
-  let captionText=first.data.text;
-  // Second pass isolates the caption heading and first lines for username precision.
-  const heading=makeCrop(.59,.79,3);
-  const second=await Tesseract.recognize(heading,'deu+eng',{logger:m=>{if(m.status==='recognizing text')$('scanInfo').textContent='Profilname: '+Math.round(m.progress*100)+' %'}});
-  const headingText=second.data.text;
-  // Put the precise caption text first; parsing avoids picking UI fragments.
-  const combined=headingText+'\n'+captionText;
-  $('raw').value=combined;
+  // Instagram caption begins below the like bar. Separate the narrow
+  // author line from the body to avoid picking up labels from the artwork.
+  const caption=makeCrop(.625,1,2.4);
+  const first=await Tesseract.recognize(caption,'deu+eng',{logger:m=>{if(m.status==='recognizing text')$('scanInfo').textContent='Beschreibung: '+Math.round(m.progress*100)+' %'}});
+  const captionText=first.data.text;
+  const authorCrop=makeCrop(.647,.744,3.4);
+  const authorResult=await Tesseract.recognize(authorCrop,'eng',{logger:m=>{if(m.status==='recognizing text')$('scanInfo').textContent='Profilzeile: '+Math.round(m.progress*100)+' %'}});
+  const authorText=authorResult.data.text;
+  $('raw').value='--- Profilzeile ---\n'+authorText+'\n--- Beschreibung ---\n'+captionText;
   applyParsed();
-  // A handle may be readable in one crop but not the other.
-  const a=parse(captionText),b=parse(headingText);
-  if(a.handle&&(!b.handle||a.handle.length>=b.handle.length))$('handle').value=a.handle;
-  else if(b.handle)$('handle').value=b.handle;
-  // Try the entire screenshot for prizes displayed only in the graphic.
-  if(!$('prize').value){$('scanInfo').textContent='Lese Gewinn aus dem Bild …';const full=makeCrop(.05,.59,1.7);const third=await Tesseract.recognize(full,'deu+eng');const prize=parse(third.data.text).prize;if(prize)$('prize').value=prize;$('raw').value+='\n--- Bildtext ---\n'+third.data.text}
-  img.close();$('scanInfo').textContent='Erkennung abgeschlossen. Bitte Profilname, Gewinn und Daten kontrollieren.';
+  // Prefer a username attached to the opening caption, not status-bar OCR.
+  // Reject short fragments instead of saving a convincing-looking wrong handle.
+  const captionHandle=parse(captionText).handle;
+  const authorHandle=parse(authorText).handle;
+  const options=[captionHandle,authorHandle].filter(Boolean).filter(h=>h.length>=7);
+  if(options.length){options.sort((a,b)=>b.length-a.length);$('handle').value=options[0]}
+  else $('handle').value='';
+  // The prize is often written prominently on the image, not in the caption.
+  if(!$('prize').value){
+   $('scanInfo').textContent='Lese Gewinn aus dem Bild …';
+   const graphic=makeCrop(.09,.46,2.2);
+   const third=await Tesseract.recognize(graphic,'deu+eng');
+   const prize=parse(third.data.text).prize;
+   if(prize)$('prize').value=prize;
+   $('raw').value+='\n--- Gewinnbild ---\n'+third.data.text;
+  }
+  // Flag likely-truncated handles for manual review; do not guess suffixes.
+  if($('handle').value&&/[_\.]$/.test($('handle').value)){
+   $('scanInfo').textContent='Profilname möglicherweise abgeschnitten – bitte mit Screenshot vergleichen.';
+  }
+  img.close();if(!$('scanInfo').textContent.includes('abgeschnitten'))$('scanInfo').textContent='Erkennung abgeschlossen. Bitte Profilname, Gewinn und Daten kontrollieren.';
  }catch(err){$('scanInfo').textContent='Texterkennung fehlgeschlagen. Bitte Angaben manuell eintragen.';console.error(err)}
 };
 $('save').onclick=()=>{const handle=$('handle').value.trim();if(!handle){alert('Bitte Instagram-Profil eintragen.');return}const entry={id:editing||((crypto.randomUUID&&crypto.randomUUID())||String(Date.now()+Math.random())),handle:handle.startsWith('@')?handle:'@'+handle,prize:$('prize').value.trim(),date:$('date').value,deadline:$('deadline').value,time:$('time').value,method:$('method').value,url:$('url').value.trim(),notes:$('notes').value.trim(),raw:$('raw').value,done:false,created:Date.now()};if(editing){const i=items.findIndex(x=>x.id===editing);if(i>=0)items[i]={...items[i],...entry,done:items[i].done}}else items.push(entry);persist();reset();render()};
