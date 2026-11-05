@@ -1,4 +1,4 @@
-# GewinnRadar v1.7
+# GewinnRadar v1.8
 
 Update für GitHub Pages: `index.html` und `sw.js` im bestehenden Repository ersetzen. `manifest.webmanifest` kann unverändert bleiben. Bestehende Einträge verwenden weiterhin denselben localStorage-Schlüssel (`gewinnradar-v1`).
 
