@@ -1,7 +1,7 @@
-# GewinnRadar v1.8
+# GewinnRadar v1.9
 
-Update für GitHub Pages: `index.html` und `sw.js` im bestehenden Repository ersetzen. `manifest.webmanifest` kann unverändert bleiben. Bestehende Einträge verwenden weiterhin denselben localStorage-Schlüssel (`gewinnradar-v1`).
+Änderungen: Profil und Benachrichtigungsart in der Schnellvorschau priorisiert; Gewinn optional; separates Auslosungsdatum und Teilnahmeschluss; automatisches Kontrolldatum am Folgetag des Teilnahmeschlusses, wenn keine Auslosung bekannt ist. Auch Listenfilter, Sortierung und „Nachsehen“-Zähler verwenden das neue Kontrolldatum. Vorhandene v1.8-Einträge bleiben durch unveränderten localStorage-Schlüssel kompatibel (im selben Browser und unter derselben URL).
 
-Änderungen: Profilerkennung aus dem Beginn der Instagram-Beschreibung statt aus beliebigen Teilnahmebedingungen; Erkennung von PlayStation 5 und Sony Bravia TV; Hinweise zu Abholung, Alter, Wohnsitz und Uhrzeit des Teilnahmeschlusses. Auslosungszeit und Teilnahmeschluss bleiben getrennt.
+Installation: Dateien in das vorhandene GitHub-Pages-Repository hochladen und veröffentlichen. Bei neuem Browser oder anderer Domain vorhandene Daten vorher als JSON sichern und danach importieren.
 
-Hinweis: OCR-Ergebnisse müssen vor dem Speichern geprüft werden. Die Erkennung wurde mit zwei Textbeispielen getestet, aber nicht live auf einem iPhone.
+Hinweis: OCR ist heuristisch; Profil, Datum und Benachrichtigung bitte kontrollieren. Ein Kontrolldatum ist kein bestätigtes Auslosungsdatum.
