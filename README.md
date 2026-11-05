@@ -1,24 +1,7 @@
-# GewinnRadar – Mini-PWA
+# GewinnRadar v1.7
 
-Eine einfache lokale Gewinnspiel-Verwaltung für Instagram-Screenshots.
+Update für GitHub Pages: `index.html` und `sw.js` im bestehenden Repository ersetzen. `manifest.webmanifest` kann unverändert bleiben. Bestehende Einträge verwenden weiterhin denselben localStorage-Schlüssel (`gewinnradar-v1`).
 
-## Start
+Änderungen: Profilerkennung aus dem Beginn der Instagram-Beschreibung statt aus beliebigen Teilnahmebedingungen; Erkennung von PlayStation 5 und Sony Bravia TV; Hinweise zu Abholung, Alter, Wohnsitz und Uhrzeit des Teilnahmeschlusses. Auslosungszeit und Teilnahmeschluss bleiben getrennt.
 
-Die Dateien auf einen statischen HTTPS-Webhost laden (z. B. GitHub Pages oder Netlify). Danach die URL in Safari auf dem iPhone öffnen und über Teilen → Zum Home-Bildschirm hinzufügen installieren.
-
-Für einen lokalen Test: `python3 -m http.server 8000` und `http://localhost:8000` öffnen.
-
-## Funktionen
-- Screenshot importieren und OCR mit Tesseract.js (Deutsch/Englisch) durchführen
-- Profil, Auslosungsdatum, Uhrzeit und Benachrichtigungsart heuristisch erkennen
-- Angaben vor dem Speichern korrigieren
-- Nach Datum, Status und Methode filtern; Erledigt/Entfolgen markieren
-- Daten lokal speichern; JSON-Sicherung exportieren/importieren
-
-## Grenzen
-- OCR lädt beim ersten Aufruf Bibliothek und Sprachmodelle über das Internet. Die Bilder werden im Browser verarbeitet.
-- Screenshot-Texte sind oft unvollständig; es gibt keine Garantie für korrekt erkannte Termine. Besonders Teilnahmeschluss vs. Auslosung prüfen.
-- Screenshots werden nicht dauerhaft gespeichert, nur erkannter Text und Einträge.
-- Keine automatische Instagram-Anmeldung, kein Folgen/Entfolgen, keine Push-Benachrichtigungen.
-- Browserdaten löschen kann Einträge entfernen. Regelmäßig JSON-Sicherung exportieren.
-- Datumsangaben ohne Jahr sind unsicher und sollten überprüft werden.
+Hinweis: OCR-Ergebnisse müssen vor dem Speichern geprüft werden. Die Erkennung wurde mit zwei Textbeispielen getestet, aber nicht live auf einem iPhone.
